@@ -2,8 +2,8 @@
 
 namespace Fina.Core.Requests.Transactions;
 
-public class DeleteTransactionRequest: Request
+public class DeleteTransactionRequest : Request
 {
-    [Required]
+    [Required(ErrorMessage = "Transação Inválida")]
     public long Id { get; set; }
 }

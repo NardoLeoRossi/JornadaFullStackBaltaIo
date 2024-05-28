@@ -2,8 +2,8 @@
 
 namespace Fina.Core.Requests.Transactions;
 
-public class GetTransactionByIdRequest: Request
+public class GetTransactionByIdRequest : Request
 {
-    [Required]
+    [Required(ErrorMessage = "Id Obrigatório")]
     public long Id { get; set; }
 }
