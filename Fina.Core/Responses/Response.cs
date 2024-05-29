@@ -18,7 +18,7 @@ public class Response<T>
     [JsonConstructor]
     public Response() => _code = Configuration.DefaultStatusCode;
 
-    protected Response(T? data, int code = Configuration.DefaultStatusCode, string? message = null)
+    public Response(T? data, int code = Configuration.DefaultStatusCode, string? message = null)
     {
         Data = data;
         _code = code;
