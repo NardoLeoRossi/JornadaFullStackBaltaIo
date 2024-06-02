@@ -1,11 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Fina.Core.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fina.Core.Requests.Transactions;
 
-public class CreateTransactionRequest
+public class CreateTransactionRequest : Request
 {
     [Required(ErrorMessage = "Título Inválido")]
     public string Title { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Tipo inválido")]
+    public ETransactionType Type { get; set; } = ETransactionType.Withdraw;
 
     [Required(ErrorMessage = "Valor Inválido")]
     public decimal Amount { get; set; }
