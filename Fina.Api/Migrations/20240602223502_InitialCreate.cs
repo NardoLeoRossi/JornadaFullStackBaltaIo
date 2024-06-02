@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Fina.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class v1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,7 @@ namespace Fina.Api.Migrations
                     PaidOrReceivedAt = table.Column<DateTime>(type: "DATETIME2", nullable: false),
                     Type = table.Column<int>(type: "INT", nullable: false),
                     Amount = table.Column<decimal>(type: "MONEY", nullable: false),
-                    CategoryId = table.Column<int>(type: "INT", nullable: false),
+                    CategoryId = table.Column<long>(type: "BIGINT", nullable: false),
                     UserId = table.Column<string>(type: "VARCHAR(160)", maxLength: 160, nullable: false)
                 },
                 constraints: table =>

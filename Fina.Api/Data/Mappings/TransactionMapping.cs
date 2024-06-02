@@ -35,7 +35,7 @@ public class TransactionMapping : IEntityTypeConfiguration<Transaction>
 
         builder.Property(x => x.CategoryId)
             .IsRequired()
-            .HasColumnType("INT");
+            .HasColumnType("BIGINT");
 
         builder.Property(x => x.UserId)
             .IsRequired()

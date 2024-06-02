@@ -61,8 +61,8 @@ namespace Fina.Api.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("MONEY");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("INT");
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("BIGINT");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("DATETIME2");

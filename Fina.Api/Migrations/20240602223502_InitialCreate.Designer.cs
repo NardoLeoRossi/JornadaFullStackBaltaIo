@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fina.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240529000531_v1")]
-    partial class v1
+    [Migration("20240602223502_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,8 +64,8 @@ namespace Fina.Api.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("MONEY");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("INT");
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("BIGINT");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("DATETIME2");

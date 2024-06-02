@@ -1,20 +1,19 @@
-using Fina.Api.Data;
-using Fina.Api.Handlers;
-using Fina.Core.Handlers;
-using Microsoft.EntityFrameworkCore;
+using Fina.Api.Common;
+using Fina.Api.Common.Api;
+using Fina.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
-
-const string connectionString = @"Data Source =DESKTOP-M06C0GR; Initial Catalog=Fina; Integrated Security=True; Connect Timeout=30; Encrypt=False; User Id= sa; Password= 43leo25ale36";
-
-builder.Services.AddDbContext<AppDbContext>(
-                                    x => x.UseSqlServer(connectionString));
-
-builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
-builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
+builder.AddConfiguration();
+builder.AddDataContexts();
+builder.AddCrossOrigin();
+builder.AddDocumentation();
+builder.AddServices();
 
 var app = builder.Build();
+if (app.Environment.IsDevelopment())
+    app.ConfigureDevEnvironment();
 
-app.MapGet("/", () => "Hello World!");
+app.UseCors();
+app.MapEndpoints();
 
 app.Run();
